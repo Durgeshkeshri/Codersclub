@@ -1,0 +1,86 @@
+import { useState } from "react";
+import './Body.css';
+import logo from './images/logo.png';
+const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
+  const arr = ['Home', 'Contest', 'Winners', 'About'];
+  const [isLogin, setLogin] = useState(false);
+
+  const handleLogin = () => {
+    setLogin(true);
+    closeMenu();
+  };
+
+  const handleLogout = () => {
+    setLogin(false);
+    closeMenu();
+  };
+
+  const webStyles = 'bg-gray-950 flex justify-evenly font-serif border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl';
+  const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-serif bg-gray-950 gap-4 pt-16';
+
+  return (
+    <div>
+      {/* from-blue-500 via-purple-500 to-pink-500 hover:text-teal-50 */}
+
+      <ul className={`lg:flex ${isMenuOpen ? mobileStyles : `hidden ${webStyles}`}`}>
+        {arr.map((item, index) => (
+          <li className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffd700] via-[#800080] to-[#800000] hover:text-teal-100 font-semibold font-serif transition duration-300" key={index}>
+            <a href={`#${item}`} onClick={closeMenu}>{item}</a>
+          </li>
+        ))}
+
+        {isLogin ? (
+          <li>
+            <button className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:text-teal-50 font-semibold transition duration-300" onClick={handleLogout}>Logout</button>
+          </li>
+        ) : (
+          <li>
+            <button className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffd700] via-[#800080] to-[#800000] hover:text-teal-100 font-semibold font-serif transition duration-300" onClick={handleLogin}>
+              <a href="#login">Login</a>
+            </button>
+          </li>
+        )}
+      </ul>
+      <div className={`flex items-center ${isMenuOpen ? 'justify-end' : 'justify-between'} max-sm:p-[5px]`}>
+        {!isMenuOpen && (
+          <span className="self-start pl-2 pt-2">
+            <img className="w-8 h-8 inline animate-spin-slow lg:hidden" src={logo} alt="" />
+          </span>
+        )}
+        <button
+          onClick={toggleMenu}
+          className={`lg:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end  ${isMenuOpen ? 'rotate-180' : ''}`}
+        >
+          <svg
+            className={`w-12 h-10 transition-transform transform ${isMenuOpen ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="url(#icon-gradient)"  // Use the gradient here
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Define the linear gradient */}
+            <defs>
+              <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: "#00f", stopOpacity: 1 }} />
+                <stop offset="50%" style={{ stopColor: "#800080", stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: "#ff00ff", stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
+
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+
+        </button>
+      </div>
+
+    </div>
+
+  );
+};
+
+export default Navbar;
