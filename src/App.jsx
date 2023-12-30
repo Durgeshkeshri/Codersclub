@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Body from "./components/Body";
+import Form from './components/Form';
 import { useState } from 'react';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
     <>
       <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
       <Body isMenuOpen={isMenuOpen}/>
+      <Form/>
     </>
   );
 };
