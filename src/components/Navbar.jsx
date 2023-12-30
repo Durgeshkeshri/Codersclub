@@ -15,27 +15,30 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     closeMenu();
   };
 
-  const webStyles = 'bg-gray-950 flex justify-evenly font-serif border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl';
-  const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-serif bg-gray-950 gap-4 pt-16';
+  const webStyles = 'bg-gray-950 flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl';
+  const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-times bg-gray-950 gap-4 pt-16';
 
   return (
     <div>
-      {/* from-blue-500 via-purple-500 to-pink-500 hover:text-teal-50 */}
+      {/* text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500*/}
 
-      <ul className={`lg:flex ${isMenuOpen ? mobileStyles : `hidden ${webStyles}`}`}>
+      <ul className={`md:flex ${isMenuOpen ? mobileStyles : `hidden ${webStyles}`}`}>
         {arr.map((item, index) => (
-          <li className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffd700] via-[#800080] to-[#800000] hover:text-teal-100 font-semibold font-serif transition duration-300" key={index}>
+          <li className="text-[gold] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" key={index}>
             <a href={`#${item}`} onClick={closeMenu}>{item}</a>
           </li>
         ))}
 
         {isLogin ? (
           <li>
-            <button className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:text-teal-50 font-semibold transition duration-300" onClick={handleLogout}>Logout</button>
+            <button className="text-[gold] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" onClick={handleLogout}>Logout</button>
           </li>
         ) : (
           <li>
-            <button className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffd700] via-[#800080] to-[#800000] hover:text-teal-100 font-semibold font-serif transition duration-300" onClick={handleLogin}>
+            <button
+              className=" text-[gold] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
+              onClick={handleLogin}
+            >
               <a href="#login">Login</a>
             </button>
           </li>
@@ -44,12 +47,12 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
       <div className={`flex items-center ${isMenuOpen ? 'justify-end' : 'justify-between'} max-sm:p-[5px]`}>
         {!isMenuOpen && (
           <span className="self-start pl-2 pt-2">
-            <img className="w-8 h-8 inline animate-spin-slow lg:hidden" src={logo} alt="" />
+            <img className="w-8 h-8 inline animate-spin-slow md:hidden" src={logo} alt="" />
           </span>
         )}
         <button
           onClick={toggleMenu}
-          className={`lg:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end  ${isMenuOpen ? 'rotate-180' : ''}`}
+          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end  ${isMenuOpen ? 'rotate-180' : ''}`}
         >
           <svg
             className={`w-12 h-10 transition-transform transform ${isMenuOpen ? 'rotate-180' : ''}`}

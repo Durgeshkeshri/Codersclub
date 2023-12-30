@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Bodycopy from "./components/Bodycopy";
+import Body from "./components/Body";
 import { useState } from 'react';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <>
       <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
-      <Bodycopy isMenuOpen={isMenuOpen}/>
+      <Body isMenuOpen={isMenuOpen}/>
     </>
   );
 };

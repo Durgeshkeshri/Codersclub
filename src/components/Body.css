@@ -52,3 +52,13 @@
         transform: rotate(360deg);
     }
 }
+
+
+.custom-text-shadow {
+    text-shadow: 2px 2px 4px maroon; /* Adjust the values as needed */
+}
+
+.font-times {
+    font-family: 'Times New Roman', Times, serif;
+}
+
