@@ -15,8 +15,8 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     closeMenu();
   };
 
-  const webStyles = 'bg-gray-950 flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl';
-  const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-times bg-gray-950 gap-4 pt-16';
+  const webStyles = 'bg-gray-950 flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl min-2xl:text-5xl';
+  const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-times bg-gray-950 gap-4 pt-16 z-10';
 
   return (
     <div>
@@ -24,19 +24,19 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
 
       <ul className={`md:flex ${isMenuOpen ? mobileStyles : `hidden ${webStyles}`}`}>
         {arr.map((item, index) => (
-          <li className="text-[gold] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" key={index}>
+          <li className="text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" key={index}>
             <a href={`#${item}`} onClick={closeMenu}>{item}</a>
           </li>
         ))}
 
         {isLogin ? (
           <li>
-            <button className="text-[gold] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" onClick={handleLogout}>Logout</button>
+            <button className="text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" onClick={handleLogout}>Logout</button>
           </li>
         ) : (
           <li>
             <button
-              className=" text-[gold] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
+              className=" text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
               onClick={handleLogin}
             >
               <a href="#login">Login</a>
@@ -52,7 +52,7 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         )}
         <button
           onClick={toggleMenu}
-          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end  ${isMenuOpen ? 'rotate-180' : ''}`}
+          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end z-10 ${isMenuOpen ? 'rotate-180' : ''}`}
         >
           <svg
             className={`w-12 h-10 transition-transform transform ${isMenuOpen ? 'rotate-180' : ''}`}

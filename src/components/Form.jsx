@@ -1,90 +1,129 @@
 import React, { useRef } from 'react';
+import bg from './images/bg.png'
+import './Body.css'
 const Form = () => {
-    const fullnameRef = useRef();
+    const fullNameRef = useRef();
     const courseRef = useRef();
     const yearRef = useRef();
-    const divisionRef = useRef();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const gmailRef = useRef();
+    const phoneNumberRef = useRef();
+  
+    const submitForm = async () => {
+      // Check if all required fields are filled before submitting the form
+      if (
+        fullNameRef.current.value &&
+        courseRef.current.value &&
+        yearRef.current.value &&
+        gmailRef.current.value &&
+        phoneNumberRef.current.value
+      ) {
         const formData = {
-            fullname: fullnameRef.current.value,
-            course: courseRef.current.value,
-            year: yearRef.current.value,
-            division: divisionRef.current.value,
+          fullName: fullNameRef.current.value,
+          course: courseRef.current.value,
+          year: yearRef.current.value,
+          gmail: gmailRef.current.value,
+          phoneNumber: phoneNumberRef.current.value,
         };
-
+  
         try {
-            const response = await fetch('/api/form', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
-                console.log('Form data sent successfully');
-
-                fullnameRef.current.value = '';
-                courseRef.current.value = '';
-                yearRef.current.value = '1'; // Set the default year value to '1'
-                divisionRef.current.value = '';
-
-                // You can add additional logic here, such as showing a success message
-            } else {
-
-                fullnameRef.current.value = '';
-                courseRef.current.value = '';
-                yearRef.current.value = '1'; // Set the default year value to '1'
-                divisionRef.current.value = '';
-
-                console.error('Error sending form data');
-            }
-        } catch (error) {
-            console.error('Error sending form data:', error);
-            
-            fullnameRef.current.value = '';
+          const response = await fetch('http://your-backend-endpoint', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+  
+          if (response.ok) {
+            const data = await response.json();
+            // Handle the response from the backend (if needed)
+            console.log(data);
+            // Clear the form fields
+            fullNameRef.current.value = '';
             courseRef.current.value = '';
-            yearRef.current.value = '1'; // Set the default year value to '1'
-            divisionRef.current.value = '';
+            yearRef.current.value = '';
+            gmailRef.current.value = '';
+            phoneNumberRef.current.value = '';
+          } else {
+            console.error('Error:', response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error);
         }
+      } else {
+        // Handle the case where required fields are not filled
+        console.log('Please fill out all required fields');
+      }
     };
-
+  
     return (
-        <div className="App">
-            <h1>React Form with Node.js + Express Backend</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Full Name:
-                    <input type="text" ref={fullnameRef} required />
+      <div className="min-h-screen p-4">
+        <hr className="border-inherit border-slate-800" />
+        <div className="flex flex-col md:flex-row justify-center items-center mx-auto mt-7">
+          {/* Form Container */}
+          <div className="w-full md:w-2/3 p-8 rounded-md shadow-md mt-10 md:ml-16">
+            <h2 className="text-[#05D9FF] text-5xl custom-text-shadow font-times transition duration-300 max-sm:text-[1.6rem] lg:tracking-wider transform hover:text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-bounce">
+              Participate for the upcoming contest
+            </h2>
+            {/* Form */}
+            <form className="space-y-4 mt-4">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-600">
+                  Full Name
                 </label>
-                <br />
-                <label>
-                    Course:
-                    <input type="text" ref={courseRef} required />
+                <input type="text" id="fullName" ref={fullNameRef} className="mt-1 p-2 w-full border rounded-md" required />
+              </div>
+  
+              <div>
+                <label htmlFor="course" className="block text-sm font-medium text-gray-600">
+                  Course
                 </label>
-                <br />
-                <label>
-                    Year:
-                    <select ref={yearRef} required>
-                        <option value="1">1st</option>
-                        <option value="2">2nd</option>
-                        <option value="3">3rd</option>
-                        <option value="4">4th</option>
-                    </select>
+                <input type="text" id="course" ref={courseRef} className="mt-1 p-2 w-full border rounded-md" required />
+              </div>
+  
+              <div>
+                <label htmlFor="year" className="block text-sm font-medium text-gray-600">
+                  Year
                 </label>
-                <br />
-                <label>
-                    Division:
-                    <input type="text" ref={divisionRef} required />
+                <select id="year" ref={yearRef} className="mt-1 p-2 w-full border rounded-md" required>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </div>
+  
+              <div>
+                <label htmlFor="gmail" className="block text-sm font-medium text-gray-600">
+                  Gmail
                 </label>
-                <br />
-                <button type="submit">Submit</button>
+                <input type="email" id="gmail" ref={gmailRef} className="mt-1 p-2 w-full border rounded-md" required />
+              </div>
+  
+              <div>
+                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-600">
+                  Phone Number
+                </label>
+                <input type="tel" id="phoneNumber" ref={phoneNumberRef} className="mt-1 p-2 w-full border rounded-md" required />
+              </div>
+  
+              <button
+                type="button"
+                onClick={submitForm}
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-blue-800 hover:to-purple-500 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105"
+              >
+                Submit
+              </button>
             </form>
+          </div>
+  
+          {/* Image Container */}
+          <div className="hidden md:block md:w-1/3">
+            <img src={bg} alt="" className="w-full h-auto custom-effect" />
+          </div>
         </div>
+      </div>
     );
-}
+  };
 
 export default Form;

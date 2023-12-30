@@ -19,10 +19,10 @@
 .animate-character {
     text-transform: uppercase;
     background-image: linear-gradient(-225deg,
-            #231557 0%,
-            #44107a 29%,
-            #ff1361 67%,
-            #fff800 100%);
+            rgb(255, 255, 255) 0%,
+            rgb(4, 0, 255) 29%,
+            cyan 67%,
+            dodgerblue 100%);
     background-size: 200% auto;
     /* Corrected background size */
     background-clip: text;
@@ -55,10 +55,49 @@
 
 
 .custom-text-shadow {
-    text-shadow: 2px 2px 4px maroon; /* Adjust the values as needed */
+    text-shadow: 2px 2px 4px rgb(25, 25, 202); /* Adjust the values as needed */
 }
 
 .font-times {
     font-family: 'Times New Roman', Times, serif;
 }
 
+/* Define your custom class for infinite shining effect */
+.custom-effect {
+    /* Infinite shining effect */
+    animation: shine 2s infinite linear;
+  }
+  
+  /* Keyframes for the infinite shining effect */
+  @keyframes shine {
+    0% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.5);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+
+  /* Your default styles go here */
+
+/* Media query for screens larger than 16.1 inches */
+@media screen and (min-width: 16.1in) {
+    .large-screen {
+      /* Your styles for screens larger than 15.6 inches go here */
+      font-size: 3rem;
+      
+      /* Add more styles as needed */
+    }
+    .imgpad{
+        padding-top: 80px;
+    }
+    imghw {
+        width: 500px;
+        height: 200px;
+    }
+  }
+
+  
