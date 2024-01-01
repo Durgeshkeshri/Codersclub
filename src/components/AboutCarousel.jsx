@@ -62,7 +62,7 @@ const AboutCarousel = () => {
     return (
         <div className="relative p-4 rounded-md shadow-lg overflow-hidden">
             <hr className="border-inherit border-slate-800" />
-            <h3 className="text-white mt-8 font-serif text-center 2xl:text-7xl xl:text-6xl md:text-5xl max-md:text-[3rem] mb-8">About Us</h3>
+            <h3 className="text-[#05D9FF] text-5xl custom-text-shadow font-times transition duration-300 mt-8 font-serif hover:scale-110 text-center 2xl:text-6xl xl:text-5xl md:text-4xl max-md:text-[2.5rem] mb-8">About Us</h3>
             <div className="max-w-screen-lg mx-auto">
                 <div className="relative overflow-hidden rounded-md">
                     <div className="flex">
