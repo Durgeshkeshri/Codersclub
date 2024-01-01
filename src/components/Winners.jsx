@@ -16,7 +16,7 @@ const Winners = () => {
   return (
     <div className="py-14"> {/* Increased py-12 to py-14 for 20% increase */}
       <div className="container mx-auto">
-        <h2 className="font-times tracking-wider text-4xl font-semibold text-center mb-7 text-cyan-400">Winners Showcase</h2> {/* Increased text-3xl to text-4xl for 20% increase */}
+        <h2 className=" hover:scale-105 font-times tracking-wider text-4xl font-semibold text-center mb-7 text-[#05D9FF] custom-text-shadow font-times transition duration-300">Winners Showcase</h2> {/* Increased text-3xl to text-4xl for 20% increase */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 2xl:px-48"> {/* Increased gap-6 to gap-8 for 20% increase */}
           {winnersData.map((winner, index) => (
             <motion.div

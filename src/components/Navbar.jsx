@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './Body.css';
 import logo from './images/logo.png';
+
 const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
   const arr = ['Home', 'Contest', 'Winners', 'About'];
   const [isLogin, setLogin] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
 
   const handleLogin = () => {
     setLogin(true);
@@ -15,23 +18,46 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     closeMenu();
   };
 
-  const webStyles = 'flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl min-2xl:text-5xl';
-  const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-times bg-gray-950 gap-4 pt-16 z-10';
+  const handleLinkClick = (item) => {
+    setActiveLink(item);
+    closeMenu();
+  };
+
+  const webStyles =
+    'flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl min-2xl:text-5xl';
+  const mobileStyles =
+    'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-times bg-gray-950 gap-4 pt-16 z-10';
 
   return (
     <div>
-      {/* text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500*/}
-
       <ul className={`md:flex ${isMenuOpen ? mobileStyles : `hidden ${webStyles}`}`}>
         {arr.map((item, index) => (
-          <li className="text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" key={index}>
-            <a href={`#${item}`} onClick={closeMenu}>{item}</a>
+          <li
+            key={index}
+            className={`font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110 ${
+              activeLink === item ? 'text-yellow-500' : ''
+            }`}
+          >
+              <Link
+                to={item.toLowerCase()}
+                onClick={() => handleLinkClick(item)}
+                className={`text-[#05D9FF] custom-text-shadow ${
+                  activeLink === item ? 'text-yellow-500' : ''
+                }`}
+              >
+                {item}
+              </Link>
           </li>
         ))}
 
         {isLogin ? (
           <li>
-            <button className="text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110" onClick={handleLogout}>Logout</button>
+            <button
+              className="text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </li>
         ) : (
           <li>
@@ -39,7 +65,7 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
               className=" text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
               onClick={handleLogin}
             >
-              <a href="#login">Login</a>
+              <Link to="/login">Login</Link>
             </button>
           </li>
         )}
@@ -52,37 +78,31 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         )}
         <button
           onClick={toggleMenu}
-          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end z-10 ${isMenuOpen ? 'rotate-180' : ''}`}
+          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end z-10 ${
+            isMenuOpen ? 'rotate-180' : ''
+          }`}
         >
           <svg
             className={`w-12 h-10 transition-transform transform ${isMenuOpen ? 'rotate-180' : ''}`}
             fill="none"
-            stroke="url(#icon-gradient)"  // Use the gradient here
+            stroke="url(#icon-gradient)" // Use the gradient here
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* Define the linear gradient */}
             <defs>
               <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: "#00f", stopOpacity: 1 }} />
-                <stop offset="50%" style={{ stopColor: "#800080", stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: "#ff00ff", stopOpacity: 1 }} />
+                <stop offset="0%" style={{ stopColor: '#00f', stopOpacity: 1 }} />
+                <stop offset="50%" style={{ stopColor: '#800080', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#ff00ff', stopOpacity: 1 }} />
               </linearGradient>
             </defs>
 
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
-
         </button>
       </div>
-
     </div>
-
   );
 };
 

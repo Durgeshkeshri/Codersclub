@@ -1,14 +1,21 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import Home from "./components/Home";
+import Home from './components/Home';
 import Contest from './components/Contest';
 import About from './components/About';
 import AboutCarousel from './components/AboutCarousel';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
 import Winners from './components/Winners';
-import { useState, useEffect } from 'react';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+
+// Separate layout for Login and Signup pages
+const AuthLayout = ({ children }) => (
+  <div className="bg-gray-950">
+    {children}
+  </div>
+);
 
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -19,14 +26,12 @@ const App = () => {
       setWideScreen(window.innerWidth > 1024);
     };
 
-    // Add event listener for window resize
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -37,23 +42,33 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      <div className="bg-gray-950">
-        {/* Conditionally render Navbar based on route */}
-        {!(window.location.pathname === '/login' || window.location.pathname === '/signup') && (
-          <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
-        )}
-
-        <Routes>
-          <Route path="/" element={<Home isMenuOpen={isMenuOpen} />} />
-          <Route path="/contest" element={<Contest />} />
-          <Route path="/about" element={isWideScreen ? <AboutCarousel /> : <About />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/winners" element={<Winners />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
+        <Route path="/signup" element={<AuthLayout><SignUp /></AuthLayout>} />
+        <Route
+          path="/winners"
+          element={
+            <div className="bg-gray-950">
+              <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+              <Winners />
+            </div>
+          }
+        />
+        
+        <Route
+          path="/"
+          element={
+            <div className="bg-gray-950">
+              <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+              <Home isMenuOpen={isMenuOpen} />
+              <Contest />
+              {isWideScreen ? <AboutCarousel /> : <About />}
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 

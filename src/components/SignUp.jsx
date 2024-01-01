@@ -1,5 +1,7 @@
 // src/components/Signup.js
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
+import AuthForm from './AuthForm'; // Assuming you have a shared AuthForm component
 
 const SignUp = () => {
   const usernameRef = useRef(null);
@@ -33,52 +35,36 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="w-full max-w-md">
-        <div className="bg-white p-8 border border-gray-300 rounded-md shadow-md">
-          <h2 className="text-3xl font-semibold mb-6 text-center text-blue-500">Sign Up</h2>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-              Username
-            </label>
-            <input
-              ref={usernameRef}
-              type="text"
-              id="username"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              ref={emailRef}
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              ref={passwordRef}
-              type="password"
-              id="password"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <button
-            onClick={handleSignup}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600 focus:outline-none"
-          >
-            Sign Up
-          </button>
-        </div>
-      </div>
-    </div>
+    <AuthForm
+      title="Sign Up"
+      fields={[
+        {
+          label: 'Username',
+          type: 'text',
+          ref: usernameRef,
+        },
+        {
+          label: 'Email',
+          type: 'email',
+          ref: emailRef,
+        },
+        {
+          label: 'Password',
+          type: 'password',
+          ref: passwordRef,
+        },
+      ]}
+      onSubmit={handleSignup}
+      buttonText="Sign Up"
+      bottomText={
+        <p>
+          Already have an account?{' '}
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Login
+          </Link>
+        </p>
+      }
+    />
   );
 };
 

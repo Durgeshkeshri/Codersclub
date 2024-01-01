@@ -1,5 +1,7 @@
 // src/components/Login.js
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import AuthForm from './AuthForm'; // Import the AuthForm component
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -30,42 +32,33 @@ const Login = () => {
     }
   };
 
+  // Use AuthForm with login-specific configurations
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="w-full max-w-md">
-        <div className="bg-white p-8 border border-gray-300 rounded-md shadow-md">
-          <h2 className="text-3xl font-semibold mb-6 text-center text-blue-500">Login</h2>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              ref={emailRef}
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              ref={passwordRef}
-              type="password"
-              id="password"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <button
-            onClick={handleLogin}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600 focus:outline-none"
-          >
-            Login
-          </button>
-        </div>
-      </div>
-    </div>
+    <AuthForm
+      title="Login"
+      fields={[
+        {
+          label: 'Email',
+          type: 'email',
+          ref: emailRef,
+        },
+        {
+          label: 'Password',
+          type: 'password',
+          ref: passwordRef,
+        },
+      ]}
+      onSubmit={handleLogin}
+      buttonText="Login"
+      bottomText={
+        <p>
+          Don't have an account?{' '}
+          <Link to="/signup" className="text-blue-500 hover:underline">
+            Sign Up
+          </Link>
+        </p>
+      }
+    />
   );
 };
 
