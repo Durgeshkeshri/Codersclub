@@ -15,7 +15,7 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     closeMenu();
   };
 
-  const webStyles = 'bg-gray-950 flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl min-2xl:text-5xl';
+  const webStyles = 'flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl min-2xl:text-5xl';
   const mobileStyles = 'fixed inset-0 flex flex-col text-2xl min-lg:justify-between items-center font-times bg-gray-950 gap-4 pt-16 z-10';
 
   return (

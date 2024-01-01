@@ -57,7 +57,7 @@ const Form = () => {
     };
   
     return (
-      <div className="min-h-screen p-4">
+      <div className="min-h-[645px] p-4 bg-gray-950">
         <hr className="border-inherit border-slate-800" />
         <div className="flex flex-col md:flex-row justify-center items-center mx-auto mt-7">
           {/* Form Container */}
