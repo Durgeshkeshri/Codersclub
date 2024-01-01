@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from "./components/Home";
@@ -36,17 +37,23 @@ const App = () => {
   };
 
   return (
-    <>
+    <BrowserRouter>
       <div className="bg-gray-950">
-        <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
-        <Home isMenuOpen={isMenuOpen} />
-        <Contest/> {/* Form */}
-        {isWideScreen ? <AboutCarousel/> : <About />}
-        <SignUp/>
-        <Login/>
-        <Winners/>
+        {/* Conditionally render Navbar based on route */}
+        {!(window.location.pathname === '/login' || window.location.pathname === '/signup') && (
+          <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+        )}
+
+        <Routes>
+          <Route path="/" element={<Home isMenuOpen={isMenuOpen} />} />
+          <Route path="/contest" element={<Contest />} />
+          <Route path="/about" element={isWideScreen ? <AboutCarousel /> : <About />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/winners" element={<Winners />} />
+        </Routes>
       </div>
-    </>
+    </BrowserRouter>
   );
 };
 
