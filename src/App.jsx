@@ -1,9 +1,12 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Body from "./components/Body";
-import Form from './components/Form';
-import Card from './components/Card';
-import Carousel from './components/Carousel';
+import Home from "./components/Home";
+import Contest from './components/Contest';
+import About from './components/About';
+import AboutCarousel from './components/AboutCarousel';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import Winners from './components/Winners';
 import { useState, useEffect } from 'react';
 
 const App = () => {
@@ -36,9 +39,12 @@ const App = () => {
     <>
       <div className="bg-gray-950">
         <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
-        <Body isMenuOpen={isMenuOpen} />
-        <Form />
-        {isWideScreen ? <Carousel /> : <Card />}
+        <Home isMenuOpen={isMenuOpen} />
+        <Contest/> {/* Form */}
+        {isWideScreen ? <AboutCarousel/> : <About />}
+        <SignUp/>
+        <Login/>
+        <Winners/>
       </div>
     </>
   );
