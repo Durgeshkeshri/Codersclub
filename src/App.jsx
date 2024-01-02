@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -10,6 +11,9 @@ import Winners from './components/Winners';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
+import TopButton from './components/TopButton';
+
+
 
 // Separate layout for Login and Signup pages
 const AuthLayout = ({ children }) => (
@@ -41,6 +45,10 @@ const App = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+  
+  const handleScroll =(component) => {
+    document.getElementById(component).scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <Router>
@@ -56,16 +64,26 @@ const App = () => {
             </div>
           }
         />
-        
+
         <Route
           path="/"
           element={
             <div className="bg-gray-950">
-              <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+              <Navbar handleScroll={handleScroll} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+             
+              <div id="home">
               <Home isMenuOpen={isMenuOpen} />
+              </div>
+
+              <div id="contest">
               <Contest />
+              </div>
+
+              <div id="about">
               {isWideScreen ? <AboutCarousel /> : <About />}
+              <TopButton/>
               <Footer/>
+              </div>
             </div>
           }
         />

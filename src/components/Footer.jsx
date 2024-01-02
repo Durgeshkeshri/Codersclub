@@ -10,10 +10,10 @@ const Footer = () => {
     return (
         <>
             <hr className="border-inherit border-slate-800" />
-            <footer className="text-white py-8">
+            <footer className="text-white py-8 lg:py-5">
                 <div className="container mx-auto flex flex-col lg:flex-row-reverse lg:justify-evenly items-center">
                     {/* Social Media Icons */}
-                    <div className="flex space-x-4 max-lg:mb-4">
+                    <div className="flex space-x-4 max-lg:mb-4 lg:mb-2">
                         <a
                             href="https://www.instagram.com/"
                             target="_blank"

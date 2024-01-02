@@ -3,8 +3,8 @@ import { useState } from 'react';
 import './Body.css';
 import logo from './images/logo.png';
 
-const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
-  const arr = ['Home', 'Contest', 'Winners', 'About'];
+const Navbar = ({ isMenuOpen, toggleMenu, closeMenu, handleScroll }) => {
+  const arr = ['Home', 'Contest', 'About', 'Winners'];
   const [isLogin, setLogin] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
 
@@ -22,6 +22,12 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
     setActiveLink(item);
     closeMenu();
   };
+  const handleLinkClickWithScroll = (item) => {
+    handleScroll(item.toLowerCase());
+    setActiveLink(item);
+    closeMenu();
+  };
+
 
   const webStyles =
     'flex justify-evenly font-times border border-zinc-700 py-6 lg:text-2xl md:text-xl xl:text-3xl min-2xl:text-5xl';
@@ -34,19 +40,22 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         {arr.map((item, index) => (
           <li
             key={index}
-            className={`font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110 ${
-              activeLink === item ? 'text-yellow-500' : ''
-            }`}
+            className={`font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110 ${activeLink === item ? 'text-yellow-500' : ''
+              }`}
           >
-              <Link
-                to={item.toLowerCase()}
-                onClick={() => handleLinkClick(item)}
-                className={`text-[#05D9FF] custom-text-shadow ${
-                  activeLink === item ? 'text-yellow-500' : ''
-                }`}
-              >
-                {item}
-              </Link>
+            {item === 'Winners' && <Link
+              to={item.toLowerCase()}
+              onClick={() => handleLinkClick(item)}
+              className={`text-[#05D9FF] custom-text-shadow ${activeLink === item ? 'text-yellow-500' : ''
+                }`} >
+              {item}
+            </Link>}
+
+            {item !== 'Winners' && <span onClick={() => handleLinkClickWithScroll(item)} className={`text-[#05D9FF] custom-text-shadow ${activeLink === item ? 'text-yellow-500' : ''
+              }`} >
+              {item}
+            </span>}
+
           </li>
         ))}
 
@@ -78,9 +87,8 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
         )}
         <button
           onClick={toggleMenu}
-          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end z-10 ${
-            isMenuOpen ? 'rotate-180' : ''
-          }`}
+          className={`md:hidden h-10 text-white focus:outline-none max-sm:inline max-sm:self-end z-10 ${isMenuOpen ? 'rotate-180' : ''
+            }`}
         >
           <svg
             className={`w-12 h-10 transition-transform transform ${isMenuOpen ? 'rotate-180' : ''}`}
