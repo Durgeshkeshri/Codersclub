@@ -70,16 +70,16 @@ const AboutCarousel = () => {
                     </div>
                 </div>
 
-                <div className="hidden md:flex justify-center mt-4 space-x-2">
+                {/* <div className="hidden md:flex justify-center mt-4 space-x-2">
                     {[...Array(totalSets).keys()].map((index) => (
                         <div
                             key={index}
-                            className={`w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 rounded-full ${index === currentSetIndex ? 'bg-indigo-500' : 'bg-gray-300'
+                            className={`w-1 h-1 md:w-2 md:h-2 lg:w-3 lg:h-3 rounded-full ${index === currentSetIndex ? 'bg-indigo-500' : 'bg-gray-300'
                                 } cursor-pointer`}
                             onClick={() => setCurrentSetIndex(index)}
                         ></div>
                     ))}
-                </div>
+                </div> */}
             </div>
         </div>
     );

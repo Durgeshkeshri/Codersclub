@@ -9,6 +9,7 @@ import AboutCarousel from './components/AboutCarousel';
 import Winners from './components/Winners';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Footer from './components/Footer';
 
 // Separate layout for Login and Signup pages
 const AuthLayout = ({ children }) => (
@@ -64,6 +65,7 @@ const App = () => {
               <Home isMenuOpen={isMenuOpen} />
               <Contest />
               {isWideScreen ? <AboutCarousel /> : <About />}
+              <Footer/>
             </div>
           }
         />

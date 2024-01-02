@@ -104,7 +104,7 @@ const About = () => {
 <>
   <hr className="border-inherit border-slate-800" />
   <h3 className="text-white mt-8 font-serif text-center 2xl:text-7xl xl:text-6xl md:text-5xl max-md:text-[3rem]">About Us</h3>
-  <div className=" min-h-screen md:h-[750px] flex flex-col items-center lg:hidden">
+  <div className="md:h-[750px] sm:min-h-screen max-sm:h-[450px] flex flex-col items-center">
     <div className="w-full max-md:w-[500px] md:w-[700px] max-sm:w-[300px] h-[250px] mt-5">
       <div className="flex flex-col items-center bg-white w-full p-4 rounded-xl">
         <img className="w-96 max-md:w-[480px] md:w-[620px] md:h-[500px] max-sm:h-60 sm:h-96 rounded-2xl" src={currentCard.image} alt="Card" />
