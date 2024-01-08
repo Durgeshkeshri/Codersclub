@@ -29,7 +29,7 @@ const AboutCarousel = () => {
                         />
                     </div>
                     <div className="bg-white p-4 rounded-md shadow-md">
-                        <h2 className="text-xl font-bold mb-2">{card.name}</h2>
+                        <h2 className="text-xl font-semibold mb-2">{card.name}</h2>
                         <p className="text-gray-600 mb-2">{card.title}</p>
                         <div className="flex space-x-2">
                             <a href={card.instagram} target="_blank" rel="noopener noreferrer">

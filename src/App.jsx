@@ -8,12 +8,11 @@ import Contest from './components/Contest';
 import About from './components/About';
 import AboutCarousel from './components/AboutCarousel';
 import Winners from './components/Winners';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import TopButton from './components/TopButton';
 
 
+// send the users data from auth0 to the bacakend
 
 // Separate layout for Login and Signup pages
 const AuthLayout = ({ children }) => (
@@ -53,13 +52,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
-        <Route path="/signup" element={<AuthLayout><SignUp /></AuthLayout>} />
         <Route
           path="/winners"
           element={
             <div className="bg-gray-950">
-              <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
               <Winners />
             </div>
           }

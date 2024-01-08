@@ -1,20 +1,21 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import './Body.css';
 import logo from './images/logo.png';
 
 const Navbar = ({ isMenuOpen, toggleMenu, closeMenu, handleScroll }) => {
   const arr = ['Home', 'Contest', 'About', 'Winners'];
-  const [isLogin, setLogin] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
+  const { loginWithRedirect, isAuthenticated, logout} = useAuth0();
 
   const handleLogin = () => {
-    setLogin(true);
+    loginWithRedirect()
     closeMenu();
   };
 
   const handleLogout = () => {
-    setLogin(false);
+    logout({ returnTo: window.location.origin })
     closeMenu();
   };
 
@@ -59,7 +60,7 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu, handleScroll }) => {
           </li>
         ))}
 
-        {isLogin ? (
+        {isAuthenticated ? (
           <li>
             <button
               className="text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
@@ -74,7 +75,7 @@ const Navbar = ({ isMenuOpen, toggleMenu, closeMenu, handleScroll }) => {
               className=" text-[#05D9FF] custom-text-shadow font-semibold font-times transition duration-300 lg:tracking-wider transform hover:scale-110"
               onClick={handleLogin}
             >
-              <Link to="/login">Login</Link>
+              Login
             </button>
           </li>
         )}

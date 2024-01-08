@@ -100,4 +100,7 @@
     }
   }
 
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, #3490dc, #6574cd);
+  }
   

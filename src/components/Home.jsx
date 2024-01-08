@@ -5,7 +5,7 @@ const Home = ({ isMenuOpen }) => {
   return (
     <div className="min-h-[644px] md:flex md:justify-center md:items-center">
       {/* Image */}
-      <div className={`${isMenuOpen ? 'hidden' : ' xl:ml-56 max-md:w-full md:w-[100%] md:ml-20 lg:ml-36 md:mb-8 2xl:w-[63%] xl:w-[65%] lg:w-[80%] flex flex-col justify-center max-sm:hidden max-md:hidden'}`}>
+      <div className={`${isMenuOpen ? 'hidden' : ' xl:ml-56 max-md:w-full md:w-[100%] md:ml-20 lg:ml-36 md:mb-8 2xl:w-[65%] xl:w-[65%] lg:w-[80%] flex flex-col justify-center max-sm:hidden max-md:hidden'}`}>
         <img className="animate-spin-slow" src={logo} alt="" />
       </div>
 
@@ -16,7 +16,7 @@ const Home = ({ isMenuOpen }) => {
         </h1>
 
         <div className="md:hidden flex justify-center">
-          <img className=" w-[320px] " src={bg1} alt="" />
+          <img className=" w-[320px] animate-pulse " src={bg1} alt="" />
         </div>
         <p className="max-sm:px-4 max-sm:text-center max-sm:font-thin md:mb-10 md:text-[1.2rem] md:pl-16 md:pr-14 md:text-left max-md:px-5 max-md:text-center max-md:text-[1.2rem] lg:pl-16 lg:pr-16  
          lg:text-[1.3rem] xl:mb-8 xl:pr-[150px] xl:pl-16 xl:text-[1.4rem] 2xl:pr-56 2xl:text-[1.6rem] text-white  font-serif">

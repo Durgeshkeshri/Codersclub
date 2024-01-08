@@ -53,7 +53,7 @@ const Login = () => {
       bottomText={
         <p>
           Don't have an account?{' '}
-          <Link to="/signup" className="text-blue-500 hover:underline">
+          <Link to="/signup" className="text-[#2b31ce] font-semibold hover:underline">
             Sign Up
           </Link>
         </p>
