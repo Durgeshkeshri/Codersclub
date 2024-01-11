@@ -20,7 +20,7 @@ const Home = ({ isMenuOpen }) => {
         </div>
         <p className="max-sm:px-4 max-sm:text-center max-sm:font-thin md:mb-10 md:text-[1.2rem] md:pl-16 md:pr-14 md:text-left max-md:px-5 max-md:text-center max-md:text-[1.2rem] lg:pl-16 lg:pr-16  
          lg:text-[1.3rem] xl:mb-8 xl:pr-[150px] xl:pl-16 xl:text-[1.4rem] 2xl:pr-56 2xl:text-[1.6rem] text-white  font-serif">
-          Welcome to Coder's Club, a vibrant and dynamic community of tech enthusiasts created by the students of Bharati Vidyapeeth. Established on August 8, 2022, our club boasts over 350+ dedicated members and a wealth of active participants. We are proud to be a hub for all things coding and programming.
+          Welcome to Coder's Club, a vibrant and dynamic community of tech enthusiasts created by the students of Bharati Vidyapeeth. Established on August 8, 2023, our club boasts over 350+ dedicated members and a wealth of active participants. We are proud to be a hub for all things coding and programming.
         </p>
       </div>
     </div>

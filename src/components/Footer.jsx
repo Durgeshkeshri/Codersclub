@@ -15,7 +15,7 @@ const Footer = () => {
                     {/* Social Media Icons */}
                     <div className="flex space-x-4 max-lg:mb-4 lg:mb-2">
                         <a
-                            href="https://www.instagram.com/"
+                            href="https://www.instagram.com/codersclub?igsh=MzRlODBiNWFlZA=="
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl md:text-4xl lg:text-5xl hover:text-gray-500 transition duration-300"
@@ -39,7 +39,7 @@ const Footer = () => {
                             <FontAwesomeIcon className="lg:w-10 lg:h-10" icon={faLinkedin} style={{ color: '#0077B5' }} />
                         </a>
                         <a
-                            href="https://chat.whatsapp.com/YOUR_GROUP_LINK"
+                            href="https://chat.whatsapp.com/DQoTTIM9wae2qn93rCzwBR"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl md:text-4xl lg:text-5xl hover:text-gray-500 transition duration-300"

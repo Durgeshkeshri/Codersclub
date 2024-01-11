@@ -59,7 +59,7 @@ const SignUp = () => {
       bottomText={
         <p>
           Already have an account?{' '}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className="text-[#2b31ce] font-semibold hover:underline">
             Login
           </Link>
         </p>

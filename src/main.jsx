@@ -6,15 +6,13 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Auth0Provider
-    domain="dev-qwvq1y6qmiwgpm6x.us.auth0.com"
-    clientId="0l9fDehoCHun5pEMI3CDfYjsmObA8Xd8"
+    domain="dev-l5wh6xv6w6r15bxk.us.auth0.com"
+    clientId="cZRAyTbzErSgeVVFFntBUytzP32x7j7x"
     redirectUri={window.location.origin}
   >  
-  <React.StrictMode>  
     <div className="bg-zinc-950">
      <App/>
      </div>
-  </React.StrictMode>
   </Auth0Provider>,
   
 )

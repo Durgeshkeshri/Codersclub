@@ -2,13 +2,14 @@ import React, { useRef } from 'react';
 import bg from './images/bg.png'
 import './Body.css'
 const Contest = () => {
-    const fullNameRef = useRef();
-    const courseRef = useRef();
-    const yearRef = useRef();
-    const gmailRef = useRef();
-    const phoneNumberRef = useRef();
+    const fullNameRef = useRef(null);
+    const courseRef = useRef(null);
+    const yearRef = useRef(null);
+    const gmailRef = useRef(null);
+    const phoneNumberRef = useRef(null);
   
-    const submitForm = async () => {
+    const submitForm = async (e) => {
+      e.preventDefault();
       // Check if all required fields are filled before submitting the form
       if (
         fullNameRef.current.value &&
@@ -24,16 +25,17 @@ const Contest = () => {
           gmail: gmailRef.current.value,
           phoneNumber: phoneNumberRef.current.value,
         };
-  
+
+       console.log(formData);
+
         try {
-          const response = await fetch('http://your-backend-endpoint', {
+          const response = await fetch('http://localhost:3001/form/submit-form', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(formData),
           });
-  
           if (response.ok) {
             const data = await response.json();
             // Handle the response from the backend (if needed)
@@ -50,9 +52,6 @@ const Contest = () => {
         } catch (error) {
           console.error('Error:', error);
         }
-      } else {
-        // Handle the case where required fields are not filled
-        console.log('Please fill out all required fields');
       }
     };
   
@@ -66,7 +65,7 @@ const Contest = () => {
               Participate for the upcoming contest
             </h2>
             {/* Form */}
-            <form className="space-y-4 mt-4">
+            <form onClick={submitForm} className="space-y-4 mt-4">
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-gray-600">
                   Full Name
@@ -108,8 +107,7 @@ const Contest = () => {
               </div>
   
               <button
-                type="button"
-                onClick={submitForm}
+                type="submit"
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-blue-800 hover:to-purple-500 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105"
               >
                 Submit

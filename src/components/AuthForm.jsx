@@ -1,12 +1,14 @@
-// src/components/AuthForm.js
 import React from 'react';
+import './Body.css';
 
 const AuthForm = ({ title, fields, onSubmit, buttonText, bottomText }) => {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="w-full max-w-md">
-        <div className="bg-white p-8 border border-gray-300 rounded-md shadow-md">
-          <h2 className="text-3xl font-semibold mb-6 text-center text-blue-500">{title}</h2>
+    <div className="bg-gradient-radial h-screen flex items-center justify-center font-serif">
+      {/* Gradient background for the entire page */}
+      <div className="w-full max-w-md max-md:px-4">
+        <div className="bg-white bg-opacity-5 p-8 border border-gray-300 rounded-md shadow-md">
+          {/* Transparent form with a white background and 30% opacity */}
+          <h2 className="text-3xl font-semibold mb-6 text-center opacity-70 text-[#2b31ce]">{title}</h2>
           {fields.map((field, index) => (
             <div key={index} className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={field.label.toLowerCase()}>
@@ -22,7 +24,7 @@ const AuthForm = ({ title, fields, onSubmit, buttonText, bottomText }) => {
           ))}
           <button
             onClick={onSubmit}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600 focus:outline-none"
+            className="bg-blue-600 text-white px-4 py-2 tracking-widest rounded-md w-full hover:bg-blue-700 focus:outline-none"
           >
             {buttonText}
           </button>
