@@ -29,7 +29,7 @@ const Contest = () => {
        console.log(formData);
 
         try {
-          const response = await fetch('http://localhost:3001/form/submit-form', {
+          const response = await fetch('https://codersclub-api.onrender.com/form/submit-form1', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
