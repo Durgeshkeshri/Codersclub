@@ -15,7 +15,7 @@ const Footer = () => {
                     {/* Social Media Icons */}
                     <div className="flex space-x-4 max-lg:mb-4 lg:mb-2">
                         <a
-                            href="https://www.instagram.com/codersclub?igsh=MzRlODBiNWFlZA=="
+                            href="https://www.instagram.com/_Codersclub_/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl md:text-4xl lg:text-5xl hover:text-gray-500 transition duration-300"
