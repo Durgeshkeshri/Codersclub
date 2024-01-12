@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 node_modules
 
+src/components/images/song1.mp3
+src/components/images/song2.mp3
