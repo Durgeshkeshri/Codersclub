@@ -11,7 +11,7 @@ const Home = ({ isMenuOpen }) => {
 
       {/* Heading */}
       <div className="">
-        <h1 className=" max-md:mt-6 md:pl-16 max-md:block max-md:text-center max-sm:text-3xl max-md:text-4xl md:text-5xl lg:text-6xl lg:pl-16 xl:text-7xl xl:pr-40 xl:pl-14 xl:mb-8 md:mb-8 text-cyan-400 animate-bounce-slow animate-character font-serif ">
+        <h1 className=" max-md:mt-6 max-sm:mt-4 md:pl-16 max-md:block max-md:text-center max-sm:text-3xl max-md:text-4xl md:text-5xl lg:text-6xl lg:pl-16 xl:text-7xl xl:pr-40 xl:pl-14 xl:mb-8 md:mb-8 text-cyan-400 animate-bounce-slow animate-character font-serif ">
           Coder's Club
         </h1>
 
