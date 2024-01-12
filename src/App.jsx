@@ -14,13 +14,6 @@ import TopButton from './components/TopButton';
 
 // send the users data from auth0 to the bacakend
 
-// Separate layout for Login and Signup pages
-const AuthLayout = ({ children }) => (
-  <div className="bg-gray-950">
-    {children}
-  </div>
-);
-
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isWideScreen, setWideScreen] = useState(window.innerWidth > 1024);
