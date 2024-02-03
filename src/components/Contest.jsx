@@ -84,7 +84,7 @@ const Contest = () => {
             Participate for the upcoming contest
           </h2>
           {/* Form */}
-          <form onClick={submitForm} className="space-y-4 mt-4">
+          <form onSubmit={submitForm} className="space-y-4 mt-4">
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-gray-600">
                 Full Name
@@ -97,6 +97,7 @@ const Contest = () => {
                 Year
               </label>
               <select id="year" ref={yearRef} className="mt-1 p-2 w-full border rounded-md" required>
+                <option value="0">Select your year</option>
                 <option value="1">1st Year</option>
                 <option value="2">2nd Year</option>
                 <option value="3">3rd Year</option>
@@ -109,6 +110,7 @@ const Contest = () => {
                 Course
               </label>
               <select id="course" ref={courseRef} className="mt-1 p-2 w-full border rounded-md" required>
+                <option value="none">Select your course</option>
                 <option value="BCA">BCA</option>
                 <option value="BBA">BBA</option>
                 <option value="MBA">MBA</option>
@@ -118,7 +120,8 @@ const Contest = () => {
               <label htmlFor="div" className="block text-sm font-medium text-gray-600">
                 Div
               </label>
-              <select id="course" ref={divRef} className="mt-1 p-2 w-full border rounded-md" required>
+              <select id="div" ref={divRef} className="mt-1 p-2 w-full border rounded-md" required>
+                <option value="Z">Select your div</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -130,6 +133,7 @@ const Contest = () => {
                 Events
               </label>
               <select id="event" ref={eventRef} className="mt-1 p-2 w-full border rounded-md" required>
+                <option value="none">Select activites</option>
                 <option value="CodeFusion">CodeFusion</option>
                 <option value="WebWizard">Web Wizard</option>
                 <option value="QuizQuest">Quiz Quest</option>
