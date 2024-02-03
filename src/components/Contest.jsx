@@ -89,27 +89,46 @@ const Contest = () => {
               <label htmlFor="fullName" className="block text-sm font-medium text-gray-600">
                 Full Name
               </label>
-              <input type="text" id="fullName" ref={fullNameRef} className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md" required />
+              <input
+                type="text"
+                id="fullName"
+                ref={fullNameRef}
+                className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+                placeholder="Enter your full name" // Placeholder added here
+              />
             </div>
+
 
             <div>
               <label htmlFor="course" className="block text-sm font-medium text-gray-600">
                 Course
               </label>
-              <select id="course" ref={courseRef} className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md" required>
-                <option value="none">Select your course</option>
+              <select
+                id="course"
+                ref={courseRef}
+                className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+              >
+                <option value="" disabled selected>Select your course</option>
                 <option value="BCA">BCA</option>
                 <option value="BBA">BBA</option>
                 <option value="MBA">MBA</option>
               </select>
             </div>
 
+
             <div>
               <label htmlFor="year" className="block text-sm font-medium text-gray-600">
                 Year
               </label>
-              <select id="year" ref={yearRef} className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md" required>
-                <option value="0">Select your year</option>
+              <select
+                id="year"
+                ref={yearRef}
+                className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+              >
+                <option value="" disabled selected>Select your year</option>
                 <option value="1">1st Year</option>
                 <option value="2">2nd Year</option>
                 <option value="3">3rd Year</option>
@@ -117,43 +136,71 @@ const Contest = () => {
               </select>
             </div>
 
+
             <div>
               <label htmlFor="div" className="block text-sm font-medium text-gray-600">
                 Div
               </label>
-              <select id="div" ref={divRef} className="mt-1 p-2  max-sm:mt-[2px] w-full border rounded-md" required>
-                <option value="Z">Select your div</option>
+              <select
+                id="div"
+                ref={divRef}
+                className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+              >
+                <option value="" disabled selected>Select your div</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
               </select>
             </div>
 
+
             <div>
               <label htmlFor="event" className="block text-sm font-medium text-gray-600">
                 Events
               </label>
-              <select id="event" ref={eventRef} className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md" required>
-                <option value="none">Select activites</option>
+              <select
+                id="event"
+                ref={eventRef}
+                className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+              >
+                <option value="" disabled selected>Select activities</option>
                 <option value="CodeFusion">CodeFusion</option>
                 <option value="WebWizard">Web Wizard</option>
                 <option value="QuizQuest">Quiz Quest</option>
               </select>
             </div>
 
+
             <div>
               <label htmlFor="gmail" className="block text-sm font-medium text-gray-600">
                 Gmail
               </label>
-              <input type="email" id="gmail" ref={gmailRef} className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md" required />
+              <input
+                type="email"
+                id="gmail"
+                ref={gmailRef}
+                className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+                placeholder="Enter your email address"
+              />
             </div>
 
             <div>
               <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-600">
                 Phone Number
               </label>
-              <input type="tel" id="phoneNumber" ref={phoneNumberRef} className="mt-1 max-sm:mb-1 p-2 max-sm:mt-[2px] w-full border rounded-md" required />
+              <input
+                type="tel"
+                id="phoneNumber"
+                ref={phoneNumberRef}
+                className="mt-1 max-sm:mb-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
+                required
+                placeholder="Enter your phone number"
+              />
             </div>
+
 
             <button
               type="submit"
