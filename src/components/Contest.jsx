@@ -133,7 +133,6 @@ const Contest = () => {
                 <option value="CodeFusion">CodeFusion</option>
                 <option value="WebWizard">Web Wizard</option>
                 <option value="QuizQuest">Quiz Quest</option>
-                <option value="Excel-athon">Excel-athon</option>
               </select>
             </div>
 
