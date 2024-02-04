@@ -13,7 +13,6 @@ const Contest = () => {
   const gmailRef = useRef(null);
   const phoneNumberRef = useRef(null);
 
-  // In your React component
   const sendMessage = () => {
     fetch('https://codersclub-api.onrender.com/api/messages', {
       method: 'POST',
@@ -22,17 +21,17 @@ const Contest = () => {
       },
       body: JSON.stringify({ text: 'Hello, world!' })
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to send message');
-        }
-        console.log('Message sent successfully');
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+      console.log('Message sent successfully');
+    })
+    .catch(error => {
+      console.error('Error sending message:', error);
+    });
   };
-
+  
   // Call sendMessage every 15 minutes
   setInterval(sendMessage, 15 * 60 * 1000);
 
