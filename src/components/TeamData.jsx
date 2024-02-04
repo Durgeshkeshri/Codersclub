@@ -39,7 +39,7 @@ export const initialCardData = [
 
     {
         image: images[7],
-        name: 'Danish Shaikh', title: 'Vice President',
+        name: 'Danish Shaikh', title: 'Vice-President',
         instagram: 'https://www.instagram.com/durgesh.keshri',
         twitter: 'https://twitter.com/DurgeshKeshri',
         linkedin: 'https://www.linkedin.com/in/durgesh-keshri',
