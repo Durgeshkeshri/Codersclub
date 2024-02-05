@@ -9,7 +9,7 @@ const Contest = () => {
   const courseRef = useRef(null);
   const yearRef = useRef(null);
   const divRef = useRef(null);
-  const eventRef = useRef(null);
+  const houseRef = useRef(null);
   const gmailRef = useRef(null);
   const phoneNumberRef = useRef(null);
 
@@ -21,7 +21,7 @@ const Contest = () => {
       courseRef.current.value &&
       yearRef.current.value &&
       divRef.current.value &&
-      eventRef.current.value &&
+      houseRef.current.value &&
       gmailRef.current.value &&
       phoneNumberRef.current.value
     ) {
@@ -31,7 +31,7 @@ const Contest = () => {
         course: courseRef.current.value,
         year: yearRef.current.value,
         div: divRef.current.value,
-        event: eventRef.current.value,
+        house: houseRef.current.value,
         gmail: gmailRef.current.value,
         phoneNumber: phoneNumberRef.current.value,
       };
@@ -56,7 +56,7 @@ const Contest = () => {
           courseRef.current.value = '';
           yearRef.current.value = '';
           divRef.current.value = '';
-          eventRef.current.value = '';
+          houseRef.current.value = '';
           gmailRef.current.value = '';
           phoneNumberRef.current.value = '';
           // Hide success message after 3 seconds
@@ -156,19 +156,23 @@ const Contest = () => {
 
 
             <div>
-              <label htmlFor="event" className="block text-sm font-medium text-gray-600">
-                Events
+              <label htmlFor="house" className="block text-sm font-medium text-gray-600">
+                House
               </label>
               <select
-                id="event"
-                ref={eventRef}
+                id="house"
+                ref={houseRef}
                 className="mt-1 p-2 max-sm:mt-[2px] w-full border rounded-md"
                 required
               >
-                <option value="" disabled selected>Select activities</option>
-                <option value="CodeFusion">CodeFusion</option>
-                <option value="WebWizard">Web Wizard</option>
-                <option value="QuizQuest">Quiz Quest</option>
+                <option value="" disabled selected>Select House</option>
+                <option value="kadam">Kadam</option>
+                <option value="kotler">Kotler</option>
+                <option value="tata">Tata</option>
+                <option value="padamshee">Padamsee</option>
+                <option value="chanakya">Chanakya</option>
+                <option value="Prahlad">Prahlad</option>
+                <option value="Kaizen">Kaizen</option>
               </select>
             </div>
 
