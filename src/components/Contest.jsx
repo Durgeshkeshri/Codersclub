@@ -81,7 +81,7 @@ const Contest = () => {
         {/* Form Container */}
         <div className="w-full md:w-2/3  p-8 max-sm:p-2 rounded-md shadow-md mt-10 md:ml-16">
           <h2 className="text-[#05D9FF] max-sm:text-center text-5xl custom-text-shadow font-times transition duration-300 max-sm:text-[1.6rem] lg:tracking-wider transform hover:text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-bounce">
-            Participate for the upcoming contest
+            Participate for the CodeFusion
           </h2>
           {/* Form */}
           <form onSubmit={submitForm} className="space-y-4 xl:w-[800px] max-sm:space-y-1 mt-4">
