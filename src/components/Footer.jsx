@@ -54,7 +54,7 @@ const Footer = () => {
                     </p>
 
                     {/* All Rights Reserved */}
-                    <p className="text-md md:text-lg lg:text-xl">&copy; 2024 Your Company. All Rights Reserved.</p>
+                    <p className="text-md md:text-lg lg:text-xl">&copy; 2024 Coder's Club. All Rights Reserved.</p>
                 </div>
             </footer>
         </>
