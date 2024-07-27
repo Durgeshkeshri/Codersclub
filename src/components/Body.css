@@ -1,0 +1,93 @@
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce 2s infinite;
+}
+
+.animate-character {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            rgb(255, 255, 255) 0%,
+            rgb(4, 0, 255) 29%,
+            cyan 67%,
+            dodgerblue 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: textclip 2s linear infinite;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.animate-spin-slow {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.custom-text-shadow {
+    text-shadow: 2px 2px 4px rgb(25, 25, 202); 
+}
+
+.font-times {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.custom-effect {
+    animation: shine 2s infinite linear;
+  }
+
+  @keyframes shine {
+    0% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.5);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+@media screen and (min-width: 16.1in) {
+    .large-screen {
+      font-size: 3rem;
+    }
+    .imgpad{
+        padding-top: 80px;
+    }
+    imghw {
+        width: 500px;
+        height: 200px;
+    }
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, #3490dc, #6574cd);
+  }
+  
